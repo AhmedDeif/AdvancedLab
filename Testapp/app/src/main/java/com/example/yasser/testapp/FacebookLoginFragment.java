@@ -47,6 +47,10 @@ public class FacebookLoginFragment extends Fragment {
         @Override
         public void onSuccess(LoginResult loginResult) {
             AccessToken accessToken = loginResult.getAccessToken();
+            //  api call, check if the user exists ===> fazlaka so later
+            //  api call => post user with token kaza.
+
+
             com.facebook.Profile profile = com.facebook.Profile.getCurrentProfile();
 
             if(profile != null)
