@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
 
 
-  devise_for :users
+  
 
+  resources :events
   resources :users, defaults: {format: :json}
   resources :tasks, defaults: {format: :json}
 

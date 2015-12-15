@@ -2,20 +2,18 @@
 
 one:
   title: MyString
-  description: MyText
+  description: MyString
   committee: MyString
   place: MyString
-  creator: MyString
-  privacy: 1
-  time: 2015-11-12 22:22:01
-  endtime: 2015-11-12 22:22:01
+  privacy: MyString
+  time: 2015-12-15 17:30:48
+  endtime: 2015-12-15 17:30:48
 
 two:
   title: MyString
-  description: MyText
+  description: MyString
   committee: MyString
   place: MyString
-  creator: MyString
-  privacy: 1
-  time: 2015-11-12 22:22:01
-  endtime: 2015-11-12 22:22:01
+  privacy: MyString
+  time: 2015-12-15 17:30:48
+  endtime: 2015-12-15 17:30:48
