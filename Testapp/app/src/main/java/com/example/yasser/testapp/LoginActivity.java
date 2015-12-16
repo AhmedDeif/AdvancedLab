@@ -35,7 +35,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yasser.testapp.R;
-import com.example.yasser.testapp.model.Task;
+import com.example.yasser.testapp.model.*;
+import com.example.yasser.testapp.model.User;
 import com.example.yasser.testapp.util.ApiRouter;
 
 import java.security.MessageDigest;
@@ -103,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
 
-        ApiRouter.withoutToken().createTask("android task", new Callback<Task>() {
+       /* ApiRouter.withoutToken().createTask("android task 2", new Callback<Task>() {
             @Override
             public void success(Task task, Response response) {
                 Log.d("print","sss");
@@ -114,6 +115,44 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                 Log.d("print","nnnnnn");
             }
         });
+*/
+        /*ApiRouter.withoutToken().getTasks(1, new Callback<Task>() {
+            @Override
+            public void success(Task task, Response response) {
+                Log.d("aaaaaa", "tasks");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("pppp","kdjdjdd");
+            }
+        });*/
+
+        /*ApiRouter.withoutToken().getTimeline(1, new Callback<List<Task>>() {
+            @Override
+            public void success(List<Task> tasks, Response response) {
+                Log.d("Timeline","Success");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("Timeline","Fail");
+            }
+        });*/
+
+        /*ApiRouter.withoutToken().getFriends(1, new Callback<List<com.example.yasser.testapp.model.User>>() {
+            @Override
+            public void success(List<User> users, Response response) {
+                Log.d("List of friends", "Success");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("List of friends","Failure");
+            }
+        });*/
+
+
 
         Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
