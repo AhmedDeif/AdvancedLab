@@ -10,6 +10,14 @@ Rails.application.routes.draw do
 
   get 'home/show'
 
+  get 'users/getAllTasks/:id', to: 'users#getAllTasks'
+
+  get 'users/getTimeline/:id', to: 'users#getTimeline'
+
+  get 'users/getFriends/:id', to: 'users#getFriends'
+
+ 
+
 
     get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
@@ -23,6 +31,7 @@ Rails.application.routes.draw do
 
   resources :tasks
   resources :events
+  resources :users
 
 
   # The priority is based upon order of creation: first created -> highest priority.

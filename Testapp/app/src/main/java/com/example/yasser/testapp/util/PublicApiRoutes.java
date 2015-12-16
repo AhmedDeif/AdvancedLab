@@ -16,7 +16,9 @@ import retrofit.client.Response;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.PATCH;
 import retrofit.http.POST;
+import retrofit.http.Path;
 
 
 public interface PublicApiRoutes {
@@ -35,10 +37,18 @@ public interface PublicApiRoutes {
     void createTask(@Field("task[title]") String token, Callback<Task> callback);
 
 
+    // Get a user's tasks
+    @GET("/users/getAllTasks")
+    @FormUrlEncoded
+    void getTasks(@Field("user[id]") int id,Callback<List<Task>> callback);
 
 
 
+    @GET("/users/getTimeline/{user_id}")
+    void getTimeline(@Path("user_id") int id, Callback<List<Task>> callabck);
 
+    @GET("/users/getFriends/{user_id}")
+    void getFriends(@Path("user_id") int id, Callback<List<User>> callabck);
 
 
 	/*
