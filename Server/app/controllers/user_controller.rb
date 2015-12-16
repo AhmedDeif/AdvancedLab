@@ -20,12 +20,12 @@ end
     # user_id = the id of the user I want to add.
     userx = User.find(params[:user_id])
     #inherit the same committee from the user who added that person.Known for his id ; :id
-    userx.committeeName = User.find(params[:id]).committeeName
+    userx.committee = User.find(params[:id]).committee
   end
 
   def removeFromCommittee
     userx = User.find(params[:user_id])
-    userx.committeeName = nil
+    userx.committee = nil
   end
   
   def create
