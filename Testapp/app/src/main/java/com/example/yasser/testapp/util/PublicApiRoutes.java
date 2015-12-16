@@ -17,6 +17,7 @@ import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
+import retrofit.http.Path;
 
 
 public interface PublicApiRoutes {
@@ -34,6 +35,9 @@ public interface PublicApiRoutes {
     @FormUrlEncoded
     void createTask(@Field("task[title]") String token, Callback<Task> callback);
 
+
+    @GET("/users/{uid}")
+    void getProfile(@Path("uid") String token, Callback<User> callback);
 
 
 

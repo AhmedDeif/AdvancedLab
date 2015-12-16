@@ -8,6 +8,13 @@ def getAllTasks
     @tasks= Task.where(assignee_id: => userID.id)
 end
 
+def getProfile
+    @users = User.all
+    render json: @user
+ end
+
+
+
 	def new
 		    @user = User.new
 	end
@@ -15,10 +22,22 @@ end
   end
   def show
   end
+  # get the id of the user you want to add to the current committee.
+  def addToCommittee
+    # user_id = the id of the user I want to add.
+    userx = User.find(params[:user_id])
+    #inherit the same committee from the user who added that person.Known for his id ; :id
+    userx.committeeName = User.find(params[:id]).committeeName
+  end
 
+  def removeFromCommittee
+    userx = User.find(params[:user_id])
+    userx.committeeName = nil
+  end
+  
   def create
     @user = User.new(task_params)
-
+ 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }

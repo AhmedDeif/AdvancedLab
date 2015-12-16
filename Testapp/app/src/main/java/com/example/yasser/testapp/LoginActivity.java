@@ -35,7 +35,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yasser.testapp.R;
-import com.example.yasser.testapp.model.Task;
+import com.example.yasser.testapp.model.*;
+import com.example.yasser.testapp.model.User;
 import com.example.yasser.testapp.util.ApiRouter;
 
 import java.security.MessageDigest;
@@ -103,7 +104,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         });
 
 
-        ApiRouter.withoutToken().createTask("android task", new Callback<Task>() {
+        /*ApiRouter.withoutToken().createTask("android task", new Callback<Task>() {
             @Override
             public void success(Task task, Response response) {
                 Log.d("print","sss");
@@ -112,6 +113,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             @Override
             public void failure(RetrofitError error) {
                 Log.d("print","nnnnnn");
+            }
+        });*/
+
+        ApiRouter.withoutToken().getProfile(1, new Callback<com.example.yasser.testapp.model.User>() {
+            @Override
+            public void success(User user, Response response) {
+                Log.d("fetch profile","success");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("fetch profile","fail ");
             }
         });
 
