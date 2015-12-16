@@ -1,6 +1,7 @@
 package com.example.yasser.testapp;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -89,6 +90,10 @@ public class profile extends Fragment implements View.OnClickListener {
             }*/
         }else if(v.getId() == R.id.button){
 
+            Fragment fragment = new Committee();
+            fragment.setArguments(null);
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
         }
     }
 }
