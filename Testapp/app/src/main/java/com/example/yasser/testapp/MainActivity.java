@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         drawerItem[0] = new ObjectDrawerItem(R.drawable.ic_task, "Tasks");
         drawerItem[1] = new ObjectDrawerItem(R.drawable.ic_calendar, "Calendar");
-        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_message, "Messages");
+        drawerItem[2] = new ObjectDrawerItem(R.drawable.ic_message, "Users");
         drawerItem[3] = new ObjectDrawerItem(R.drawable.ic_events, "Events");
         drawerItem[4] = new ObjectDrawerItem(R.drawable.ic_awg, "AWGs");
         drawerItem[5] = new ObjectDrawerItem(R.drawable.ic_committee, "My Committee");
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
         Fragment fragment = null;
         Bundle bundle = new Bundle();
         bundle.putStringArrayList("posts",posts);
-
+        System.out.println(position);
         switch (position) {
             case 0:
                 fragment = new Tasks();
@@ -203,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                 fragment.setArguments(bundle);
                 break;
             case 2:
-                fragment = new Messages();
+                fragment = new Users_list();
                 fragment.setArguments(bundle);
                 break;
             case 3:

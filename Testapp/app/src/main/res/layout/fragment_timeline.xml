@@ -2,11 +2,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="#ffffffff">
+    android:background="#ffffffff"
+    tools:context=".timeline">
 
     <LinearLayout
         android:orientation="vertical"
@@ -18,12 +20,11 @@
         android:weightSum="1"
         android:layout_marginTop="8dip">
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="235dp"
-            android:id="@+id/postsList"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp" />
+            <ListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </ListView>
     </LinearLayout>
 
     <TextView
@@ -33,9 +34,10 @@
         android:text="Latest Updates"
         android:id="@+id/textView2"
         android:textColor="#11044d"
+        android:ems="10"
         android:textSize="30dp"
         android:layout_weight="0.07"
-        android:layout_marginTop="39dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
