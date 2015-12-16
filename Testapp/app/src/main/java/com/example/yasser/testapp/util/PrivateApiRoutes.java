@@ -5,10 +5,14 @@ package com.example.yasser.testapp.util;
  */
 
 
+import com.example.yasser.testapp.model.Task;
+import com.example.yasser.testapp.model.User;
+
 import java.util.List;
 
 import retrofit.Callback;
 import retrofit.client.Response;
+import retrofit.http.DELETE;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
@@ -17,6 +21,57 @@ import retrofit.http.POST;
 import retrofit.http.Path;
 
 public interface PrivateApiRoutes {
+
+
+
+
+
+
+
+
+
+    // ****************************************** Tasks ********************************************
+
+    //  Create new task
+    @POST("")
+    @FormUrlEncoded
+    void createTask(@Field("task[title]") String title, @Field("task[description]") String description,
+                    @Field("task[status]") String status, @Field("assigner_id") int assigner_id,
+                    @Field("task[assignee_id]") int assignee_id,  Callback<Task> callback);
+
+
+    // Get a user's tasks
+    @GET("/users/getAllTasks")
+    void getTasks(Callback<Task> callback);
+
+
+    // delete task
+    @DELETE("")
+    @FormUrlEncoded
+    void deleteTask(@Field("task[id]") int id, Callback<Response> callback);
+
+    // ****************************************** Users ********************************************
+
+
+
+
+
+    // Get a user's profile
+    @GET("/users/get_current_user")
+    void getUser(Callback<User> callback);
+
+
+    // Get timeline of user, tasks assigned to him and to members of same committee
+    @GET("")
+    void getTimeLine();
+
+
+
+
+
+    //
+
+
 
 	/*
 	@PATCH("/products/{product_id}/buy")

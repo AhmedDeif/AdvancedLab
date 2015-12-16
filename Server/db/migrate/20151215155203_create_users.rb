@@ -12,6 +12,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :committee
       t.string :city
       t.string :gender
+      t.string :photo
+      t.string :token
       t.timestamps null: false
     end
   end

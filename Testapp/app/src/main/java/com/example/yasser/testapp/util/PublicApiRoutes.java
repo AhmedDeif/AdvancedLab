@@ -11,6 +11,7 @@ import com.example.yasser.testapp.model.User;
 import java.util.List;
 
 import retrofit.Callback;
+import retrofit.client.Response;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
@@ -22,9 +23,17 @@ public interface PublicApiRoutes {
 
 
 
-    @POST("/users")
+
+    //  login user if logged in before or sign up using data from facebook.
+    @POST("/sessions/create.json")
     @FormUrlEncoded
-    void login(@Field("session[fbtoken]") String token, Callback<User> callback);
+    void login(@Field("user[token]") String token,Callback<User> callback);
+
+    @POST("/tasks.json")
+    @FormUrlEncoded
+    void createTask(@Field("task[title]") String token, Callback<Response> callback);
+
+
 
 
 

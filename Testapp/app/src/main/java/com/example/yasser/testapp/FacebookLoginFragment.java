@@ -3,6 +3,7 @@ package com.example.yasser.testapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.yasser.testapp.model.User;
+import com.example.yasser.testapp.util.ApiRouter;
+import com.example.yasser.testapp.util.PublicApiRoutes;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -33,6 +37,10 @@ import com.facebook.*;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -49,13 +57,39 @@ public class FacebookLoginFragment extends Fragment {
             AccessToken accessToken = loginResult.getAccessToken();
             //  api call, check if the user exists ===> fazlaka so later
             //  api call => post user with token kaza.
+            /*
+            ApiRouter.withoutToken().createTask("Nesreen mo2rfa", new Callback<Response>() {
 
+                @Override
+                public void success(Response response, Response response2) {
+
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });*/
+
+
+
+            ApiRouter.withoutToken().login(accessToken.toString() ,new Callback<User>() {
+                @Override
+                public void success(User user, Response response) {
+                    Log.d("login" , "it works");
+                }
+
+                @Override
+                public void failure(RetrofitError error) {
+
+                }
+            });
 
             com.facebook.Profile profile = com.facebook.Profile.getCurrentProfile();
 
             if(profile != null)
             {
-                mTextDetails.setText("Welcome   " + profile.getFirstName());
+                //mTextDetails.setText("Welcome   " + profile.getFirstName());
 
             }
             accessToken = AccessToken.getCurrentAccessToken();

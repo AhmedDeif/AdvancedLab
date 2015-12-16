@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20151215170824) do
     t.string   "committee"
     t.string   "city"
     t.string   "gender"
+    t.string   "photo"
+    t.string   "token"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  protect_from_forgery with: :null_session
 
   # GET /tasks
   # GET /tasks.json
@@ -11,6 +12,8 @@ class TasksController < ApplicationController
   # GET /tasks/1
   # GET /tasks/1.json
   def show
+      @task = Task.find(params[:id])
+      render json: @task
   end
 
   # GET /tasks/new
@@ -20,6 +23,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+
   end
 
   # POST /tasks
@@ -70,6 +74,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :description, :status)
+      params.require(:task).permit(:title)
     end
 end

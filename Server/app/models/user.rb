@@ -14,4 +14,74 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def self.authenticate(fbtoken)
+
+      user = FbGraph2::User.me(fbtoken).fetch(fields: [:name,:email, :fname, :lname, :id , :picture, :gender])
+      uid = user.identifier
+      name = user.name
+      fname = user.fname
+      lname = user.lname
+      email = user.email
+      photo = user.picture.url
+      gender = user.gender
+
+      my_user = find_by(uid: uid)
+      
+      if my_user.present?
+        my_user
+      else
+        create(
+        provider: "facebook",
+        uid: uid,
+        name: name,
+        email: email,
+        photo: picture
+         # first_name: first_name
+         # last_name: last_name
+         # username: username
+         # gender:gender
+         # location: location
+        )
+        find_by(uid: uid)
+      end
+    end
+
+    
+    def self.check_if_present(token)
+      my_user = find_by(token: token)
+      if my_user.present?
+        my_user
+      else
+        create(
+          token: token
+          )
+      end
+    end
+
+    
+    def self.sign_in_from_omniauth(auth)
+    user = find_by(provider: auth['provider'], uid: auth['uid'])
+
+    if user.nil?
+      user = create_user_from_omniauth(auth)
+    end
+
+    user
+  end
+
+    def self.create_user_from_omniauth(auth)
+    create(
+      provider: auth['provider'],
+      uid: auth['uid'],
+      name: auth['info']['name'],
+      email: auth['info']['email'],
+      photo: auth['info']['image'],
+      first_name: auth['info']['first_name'],
+      last_name: auth['info']['last_name'],
+      username: auth['info']['nickname'],
+      gender: auth['info']['gender'],
+      location: auth['info']['locale']
+    )
+  end
 end
