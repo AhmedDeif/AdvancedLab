@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151215155203) do
+ActiveRecord::Schema.define(version: 20151215170824) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "place"
+    t.datetime "time"
+    t.integer  "creator_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "status"
+    t.integer  "assigner_id"
+    t.integer  "assignee_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider"
@@ -19,6 +45,14 @@ ActiveRecord::Schema.define(version: 20151215155203) do
     t.string   "name"
     t.string   "oauth_token"
     t.datetime "oauth_expires_at"
+    t.string   "email"
+    t.time     "dateOfBirth"
+    t.string   "country"
+    t.string   "committee"
+    t.string   "city"
+    t.string   "gender"
+    t.string   "photo"
+    t.string   "token"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end

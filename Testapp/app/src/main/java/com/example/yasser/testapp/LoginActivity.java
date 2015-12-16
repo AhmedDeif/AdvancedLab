@@ -35,11 +35,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.yasser.testapp.R;
+import com.example.yasser.testapp.model.Task;
+import com.example.yasser.testapp.util.ApiRouter;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit.Callback;
+import retrofit.RetrofitError;
+import retrofit.client.Response;
 
 import static android.Manifest.permission.READ_CONTACTS;
 
@@ -93,6 +99,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     return true;
                 }
                 return false;
+            }
+        });
+
+
+        ApiRouter.withoutToken().createTask("android task", new Callback<Task>() {
+            @Override
+            public void success(Task task, Response response) {
+                Log.d("print","sss");
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.d("print","nnnnnn");
             }
         });
 

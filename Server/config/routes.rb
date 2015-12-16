@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
+  resources :comments
+
   get 'sessions/create'
+
+  post 'sessions/create'
 
   get 'sessions/destroy'
 
   get 'home/show'
 
-get 'auth/:provider/callback', to: 'sessions#create'
+
+    get 'auth/:provider/callback', to: 'sessions#create'
     get 'auth/failure', to: redirect('/')
     get 'signout', to: 'sessions#destroy', as: 'signout'
 
@@ -15,8 +20,11 @@ get 'auth/:provider/callback', to: 'sessions#create'
 
     root to: "home#show"
 
+
   resources :tasks
   resources :events
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
