@@ -1,6 +1,7 @@
 package com.example.yasser.testapp;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -71,6 +72,11 @@ public class Users_list extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getContext(), "Button was clicked for list item " + name.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                    Fragment fragment = new profile();
+                    fragment.setArguments(null);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
                 }
             });
             return postView;
