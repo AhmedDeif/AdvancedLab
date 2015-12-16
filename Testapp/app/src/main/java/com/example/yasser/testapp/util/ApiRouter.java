@@ -18,7 +18,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class ApiRouter {
-    private static final String API_BASE_URL = "http://64c18df0.ngrok.io";
+    private static final String API_BASE_URL = "http://6321a1a8.ngrok.io";
 
     private static PublicApiRoutes publicRouter;
     private static PrivateApiRoutes privateRouter;

@@ -6,6 +6,7 @@ package com.example.yasser.testapp.util;
 
 
 
+import com.example.yasser.testapp.model.Task;
 import com.example.yasser.testapp.model.User;
 
 import java.util.List;
@@ -31,7 +32,10 @@ public interface PublicApiRoutes {
 
     @POST("/tasks.json")
     @FormUrlEncoded
-    void createTask(@Field("task[title]") String token, Callback<Response> callback);
+    void createTask(@Field("task[title]") String token, Callback<Task> callback);
+
+
+
 
 
 
