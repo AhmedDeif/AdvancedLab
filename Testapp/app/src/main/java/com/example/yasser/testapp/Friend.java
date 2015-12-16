@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class Freind extends Fragment implements View.OnClickListener {
+public class Friend extends Fragment implements View.OnClickListener {
 
 
     public String passable;

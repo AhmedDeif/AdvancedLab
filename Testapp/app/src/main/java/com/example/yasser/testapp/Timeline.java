@@ -1,6 +1,7 @@
 package com.example.yasser.testapp;
 
 import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -39,14 +40,21 @@ public class Timeline extends Fragment{
         ArrayAdapter<Post> adapter = new PostAdapter();
         listView.setAdapter(adapter);
 
+
         return rootView;
     }
 
     private void populatePosts() {
-
-        POSTS.add(new Post("HII","Rana "));
-        POSTS.add(new Post("HII","Rana "));
-        POSTS.add(new Post("HII","Rana "));
+    ArrayList<String> x= new ArrayList<String>();
+        x.add("hey");
+        x.add("hola");
+        POSTS.add(new Post("HII","Rana ",x));
+        x.clear();
+        x.add("bye");
+        POSTS.add(new Post("HII", "Rana ", x));
+        x.clear();
+        x.add("meh");
+        POSTS.add(new Post("HII","Rana ",x));
     }
 
 
@@ -69,6 +77,19 @@ public class Timeline extends Fragment{
 
             TextView post = (TextView)postView.findViewById(R.id.list_item_text);
             post.setText(currentPost.getPost());
+
+            Button comments = (Button) postView.findViewById(R.id.button5);
+            comments.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Fragment fragment = new Comments();
+                    fragment.setArguments(null);
+                    FragmentManager fragmentManager = getFragmentManager();
+                    fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                }
+            });
+
 
             final EditText comment = (EditText) postView.findViewById(R.id.list_item_edit);
             final Button submit = (Button) postView.findViewById(R.id.list_item_btn);

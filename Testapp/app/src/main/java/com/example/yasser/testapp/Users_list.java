@@ -17,6 +17,8 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import retrofit.http.GET;
+
 /**
  * Created by Yasser on 16/12/15.
  */

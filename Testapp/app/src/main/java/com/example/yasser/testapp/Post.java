@@ -1,15 +1,19 @@
 package com.example.yasser.testapp;
 
+import java.util.ArrayList;
+
 /**
  * Created by Yasser on 16/12/15.
  */
 public class Post {
     private String post;
     private String user_name;
+    private ArrayList<String> comments;
 
-    public Post(String post, String user_name){
+    public Post(String post, String user_name,ArrayList<String> comments){
         this.post =post;
         this.user_name = user_name;
+        this.comments=comments;
     }
 
     public String getPost() {
@@ -26,5 +30,13 @@ public class Post {
 
     public void setUser_name(String user_name) {
         this.user_name = user_name;
+    }
+
+    public ArrayList<String> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<String> comments) {
+        this.comments = comments;
     }
 }

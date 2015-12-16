@@ -30,7 +30,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
+        android:text="Post Comment"
         android:id="@+id/list_item_btn"
         android:layout_below="@+id/list_item_text"
         android:layout_alignParentRight="true"
@@ -39,12 +39,27 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Name"
+        android:ems="10"
         android:id="@+id/list_item_edit"
-        android:layout_below="@+id/list_item_text"
+        android:textIsSelectable="true"
+        android:editable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_alignBottom="@+id/list_item_btn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_toLeftOf="@+id/list_item_btn"
-        android:layout_toStartOf="@+id/list_item_btn"
-        android:targetSdkVersion="18"/>
+        android:layout_toStartOf="@+id/list_item_btn" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Comments"
+        android:id="@+id/button5"
+        android:layout_below="@+id/list_item_edit"
+        android:layout_toLeftOf="@+id/list_item_btn"
+        android:layout_toStartOf="@+id/list_item_btn" />
 
 </RelativeLayout>
